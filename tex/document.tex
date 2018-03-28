@@ -1,0 +1,85 @@
+% !TEX root = ./document.tex
+
+\documentclass[a4paper, spanish]{article}
+
+\usepackage{mystyle}
+\usepackage{myvars}
+\usepackage{mylinearprogramming}
+%-----------------------------
+
+
+\begin{document}
+
+  \maketitle
+
+  \begin{abstract}
+    \noindent [TODO]
+  \end{abstract}
+
+  %-----------------------------
+  %  TEXT
+  %-----------------------------
+
+  \section{Introducción}
+  \label{sec:introduction}
+
+    \paragraph{}
+    [TODO]
+
+  \section{Planteamiento: Restricción de Fuente Única}
+  \label{sec:approach}
+
+    \paragraph{}
+    [TODO]
+
+    \subsection{Modelo 1}
+    \label{sec:approach-1}
+
+      \paragraph{}
+      [TODO]
+
+    \subsection{Modelo 2}
+    \label{sec:approach-2}
+
+      \paragraph{}
+      [TODO]
+
+  \section{Conclusiones}
+  \label{sec:conclusions}
+
+    \paragraph{}
+    [TODO]
+
+
+  \begin{appendices}
+
+    \section{Código Fuente}
+
+      \subsection{Problema de Transporte con Fuente Única}
+      \label{appendix:source-code}
+
+        \inputminted{text}{./../mosel/single-source-transportation-problem.mos}
+
+    \section{Datos}
+    \label{appendix:data}
+
+      \inputminted{text}{./../mosel/data.dat}
+
+  \end{appendices}
+
+
+
+
+
+  %-----------------------------
+  %  Bibliographic references
+  %-----------------------------
+
+  \nocite{subject:pent2017}
+  \nocite{tool:xpress-mosel}
+  \nocite{repository:network-flow-transeuro}
+
+  \bibliographystyle{alpha}
+  \bibliography{bib}
+
+\end{document}

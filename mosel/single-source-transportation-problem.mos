@@ -1,0 +1,12 @@
+model "single-source-transportation-model-1"
+
+    !----------------------------------------------------------------------------------------
+    ! Single Source Transportation Model 1
+    ! Sergio García Prado - garciparedes.me
+    ! April 2018
+    !----------------------------------------------------------------------------------------
+
+    uses "mmxprs";
+
+
+end-model
