@@ -2,11 +2,59 @@ model "single-source-transportation-model-1"
 
     !----------------------------------------------------------------------------------------
     ! Single Source Transportation Model 1
-    ! Sergio GarcÃ­a Prado - garciparedes.me
+    ! Sergio García Prado - garciparedes.me
     ! April 2018
     !----------------------------------------------------------------------------------------
 
     uses "mmxprs";
+    
+    
+    declarations
+        n, m: integer
+    end-declarations
+    
+    initializations from "data.dat"
+        n m
+    end-initializations
 
+    declarations
+        origins = 1..m
+        destinations = 1..n
+        
+        offer: array(origins) of real
+        demand: array(destinations) of real
+        
+        cost: array(origins, destinations) of real
+        
+        x: array(origins, destinations) of mpvar
+    end-declarations
+    
+    initializations from "data.dat"
+        offer demand cost
+    end-initializations
+    
+    
+    forall(i in origins) do
+        res_ori(i) := sum(j in destinations) x(i, j) <= offer(i)
+    end-do
+    
+    forall(j in destinations) do
+        res_dest(j) := sum(i in origins) x(i, j) >= demand(j)
+    end-do
+    
+    objetive := sum(i in origins, j in destinations) x(i, j) * cost(i, j)
+    
+    minimize(objetive)
+    
+    
+    writeln("objetive = ", getobjval)
+    
+    writeln
+    forall(i in origins) do
+        writeln
+        forall(j in destinations) do
+            write(getsol(x(i,j)), "\t")
+        end-do
+    end-do
 
 end-model
