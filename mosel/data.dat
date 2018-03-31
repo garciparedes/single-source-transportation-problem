@@ -1,6 +1,6 @@
-! Problema de transporte con fuente Ãºnica
+! Problema de transporte con fuente Única
 ! Datos de un ejemplo con m = 8 y n = 12.
-! Hay que resolver el problema de transporte normal y el problema con fuente Ãºnica
+! Hay que resolver el problema de transporte normal y el problema con fuente Única
 ! calculando el incremento en el coste total
 m: 8
 n: 12
