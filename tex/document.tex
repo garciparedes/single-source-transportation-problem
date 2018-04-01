@@ -24,14 +24,16 @@
   \label{sec:introduction}
 
     \paragraph{}
-    [TODO]
+    El \emph{Problema de Transporte} se considera bien conocido y existe una extensa literatura dedicada a él dado que surge de manera natural en un gran número de fenómenos de distinta índole. El problema básico se basa en la búsqueda de la mejor planificación de abastecimiento sobre un conjunto de destinos a partir de un conjunto de fuentes de origenes, asumiendo un determinado coste unitario así como unas restricciones de capacidad y demanda para cada punto de origen y destino respectivamente.
 
+    \paragraph{}
+    Matemáticamente este problema se puede modelar como un problema de programación lineal de la siguiente manera: Asumiremos que existen $n$ puntos de destino cada uno de ellos con una demanda $d_j, \ \forall j \in \{1,...,n\}$, que deben ser abastecidas a partir de $m$ puntos de origen, con una capacidad denotada por $s_{i}, \forall i \in \{1, ..., m\}$. Además, existe un determinado coste asociado $c_{i, j}$ por llevar una unidad de producto entre el origen $i$ y el destino $j$. Para resolver este problema se utiliza una matriz de variables de decisión positivas de dimensión $nxm$ donde la variable $x_{ij}$ determina la cantidad de producto enviado del origen $i$ al destino $j$. El modelo matemático para este problema se define en la ecuación \eqref{eq:transportation-model}.
 
     \begin{eqfloat}
       \begin{equation}
         \begin{array}{ll@{}ll}
           \text{Minimizar}	& \displaystyle \sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}c_{ij} \cdot x_{ij} \\
-          \text{sujeto a}		& \sum\limits_{j=1}^{n} x_{ij}	\leq s_{i}, & \forall i \in \{1,...,n\}\\
+          \text{sujeto a}		& \sum\limits_{j=1}^{n} x_{ij}	\leq s_{i}, & \forall i \in \{1,...,m\}\\
                             &	\sum\limits_{i=1}^{m} x_{ij}	\geq d_{j}, & \forall j \in \{1,...,n\} \\
                             & x_{ij}	\geq 0, 	& \forall i \in \{1,...,m\}, \forall j \in \{1,...,n\}
         \end{array}
@@ -39,6 +41,18 @@
       \caption{Formulación básica del \emph{Problema de Transporte}.}
       \label{eq:transportation-model}
     \end{eqfloat}
+
+    \paragraph{}
+    El modelo de transporte de la ecuación \eqref{eq:transportation-model} tiene una importante propiedad que cumplen algunos problemas de programación lineal denominada \emph{Propiedad de Integridad}, que asegura que si todas las constantes del problema (costes, capacidades y demandas máximas) son enteras, entonces las variables de decisión tomarán valores enteros en en la solución óptima.
+
+    \paragraph{}
+    Nótese que este problema se puede aplicar a un gran número de situaciones que se dan en la vida real. Desde el caso más destacado, consistente en planificar el abastecimiento de mercancias entre puntos de origen y destino para minimizar costes, a otras como la diversificación de proyectos entre distintos equipos de trabajo en una empresa para reducir costes.
+
+    \paragraph{}
+    Sin embargo, el problema básico descrito en la ecuación \eqref{eq:transportation-model} es muy restringido a la hora de modelar situaciones reales más complejas. Por tanto, en este caso se va a describir una ampliación de este que permite limitar el número de fuentes de origen para cada destino (en este caso a una única fuente).
+
+    \paragraph{}
+    La descripción de esta nueva restricción se llevará a cabo en la Sección \ref{sec:approach}. Después, en la Sección \ref{sec:results} se aplicará el problema a un caso concreto con $m = 8$ orígenes y $n = 12$ destinos. Finalmente, se comentarán distintas cuestiones acerca de esta restricción en la Sección \ref{sec:conclusions}. Por último, en el Apéndice \ref{appendix:source-code} se incluye el código fuente utilizado para la realización de las distintas pruebas, mientras que en el Apéndice \ref{appendix:data} se incluyen los datos concretos utilizados para verificar el correcto funcionamiento del modelo descrito.
 
   \section{Planteamiento: Restricción de Fuente Única}
   \label{sec:approach}
@@ -88,8 +102,8 @@
         \label{eq:single-source-transportation-model-2}
       \end{eqfloat}
 
-  \section{Conclusiones}
-  \label{sec:conclusions}
+  \section{Resultados}
+  \label{sec:results}
 
     \paragraph{}
     [TODO]
@@ -140,10 +154,17 @@
       \label{table:single-source-optimal-solution}
     \end{table}
 
+  \section{Conclusiones}
+  \label{sec:conclusions}
+
+    \paragraph{}
+    [TODO]
+
 
   \begin{appendices}
 
     \section{Código Fuente}
+    \label{appendix:source-code}
 
       \subsection{Problema de Transporte con Fuente Única: Relajación Lineal}
       \label{appendix:source-code-relaxation}
@@ -166,9 +187,6 @@
       \inputminted{text}{./../mosel/data.dat}
 
   \end{appendices}
-
-
-
 
 
   %-----------------------------
