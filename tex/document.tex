@@ -13,7 +13,7 @@
   \maketitle
 
   \begin{abstract}
-    \noindent [TODO]
+    \noindent En este trabajo se estudia el problema de transporte ampliamente conocido, así como la adicción de una nueva restricción lógica a este de tal manera que se limite el número de orígenes que sirven de manera simultanea a un determinado destino. En concreto se describen dos modelizaciones para este caso, las cuales ofrecen resultados equivalentes. Además, se verifica el apropiado funcionamiento de estos modelos sobre un problema de transporte con $m = 8$ orígenes y $n = 12$ destinos.
   \end{abstract}
 
   %-----------------------------
@@ -117,7 +117,10 @@
   \label{sec:results}
 
     \paragraph{}
-    [TODO]
+    Tal y como se indicaba en anteriores secciones, en este trabajo se ha querido comprobar la validez de la restricción de fuente única sobre un problema de transporte con $m = 8$ orígenes y $n = 12$ destinos. Este problema además, posee, la propiedad de integridad, dado que todos los costes, así como los límites de capacidad y demanda son enteros.
+
+    \paragraph{}
+    La solución óptima para el problema de transporte relajado (sin restricción de unidad) es de $c = 17003$. Además, las asignaciones determinadas para alcanzar la solución óptima se muestran en la tabla \ref{table:multi-source-optimal-solution}.
 
     \begin{table}
       \begin{center}
@@ -141,6 +144,9 @@
       \caption{Solución óptima para el problema aplicando la relajación lineal de varias fuentes.}
       \label{table:multi-source-optimal-solution}
     \end{table}
+
+    \paragraph{}
+    Para el caso del problema de transporte con la restricción de fuente única, la solución optima obtenida por los dos modelos genera un coste mínimo de $c = 21942$, lo cual es el $(21942 - 17003) / 17003 * 100 =  4939 / 17003 * 100 \approx 29 \% $ mayor que la solución relajada. Las asignaciones para llegar a esta solución exacta se muestran en la tabla \ref{table:single-source-optimal-solution}.
 
     \begin{table}
       \begin{center}
@@ -169,8 +175,13 @@
   \label{sec:conclusions}
 
     \paragraph{}
-    [TODO]
+    Tal y como se puede apreciar en los resulados, las dos modelizaciones obtenidas son equivalentes entre si, y a la vez, el espacio de soluciones de este representa un subconjunto respecto del espacio de soluciones del problema relajado (problema de transporte básico). En este caso, el sobrecoste ha sido de un $29\%$ respecto del inicial, por lo cual en situaciones así sería conveniente realizar distintos análisis a posteriori para comprobar si dicho incremento podría ser compensado por otro tipo de ventaja en casos reales.
 
+    \paragraph{}
+    Es fácil llegar a la conclusión de que existen distintas heurísticas sencillas que permiten resolver este problema, para las cuales sería interesante realizar un análisis y comparación respecto de las soluciones exactas conseguidas a partir del la modelización como problema de programación lineal.
+
+    \paragraph{}
+    En cuanto a la pregunta sobre qué modelo elegir a la hora de aplicar la restricción de fuente única, probablemente esto dependerá de si en el problema se van a añadir otras restricciones adiccionales. Es decir, si sería posible aplicar la modelización con variables binarias (simplificación) junto con restricciones adicionales o por contra, tendríamos que recurrir al modelo con variables continuas y binarias (ampliación).
 
   \begin{appendices}
 
