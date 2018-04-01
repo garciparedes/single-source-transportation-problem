@@ -50,15 +50,71 @@
     \paragraph{}
     [TODO]
 
+    \begin{table}
+      \begin{center}
+        \begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | c | c | c | c |}
+              \hline
+          \multicolumn{2}{| c |}{\multirow{2}{*}{Coste Mínimo $c = 17003$}} &
+            \multicolumn{12}{ c |}{Destinos $n = 12$} \\ \cline{3-14}
+          \multicolumn{2}{| c |}{}
+            & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8   & 9  & 10 & 11  & 12 \\ \hline
+          \multirow{8}{*}{Orígenes $m = 8$}
+            & 1 & 64 & 0  & 0  & 0  & 0  & 3  & 0  & 0   & 0  & 0  & 0   & 109 \\ \cline{2-14}
+            & 2 & 0  & 0  & 0  & 88 & 0  & 0  & 29 & 0   & 0  & 0  & 0   & 0 \\ \cline{2-14}
+            & 3 & 0  & 0  & 0  & 0  & 0  & 0  & 0  & 0   & 82 & 0  & 0   & 0 \\ \cline{2-14}
+            & 4 & 0  & 0  & 0  & 0  & 0  & 0  & 39 & 0   & 0  & 0  & 113 & 0 \\ \cline{2-14}
+            & 5 & 5  & 0  & 0  & 0  & 95 & 0  & 0  & 0   & 0  & 78 & 0   & 0 \\ \cline{2-14}
+            & 6 & 0  & 0  & 95 & 1  & 0  & 9  & 0  & 0   & 0  & 0  & 0   & 0 \\ \cline{2-14}
+            & 7 & 0  & 0  & 0  & 0  & 0  & 15 & 0  & 112 & 0  & 0  & 0   & 0 \\ \cline{2-14}
+            & 8 & 0  & 98 & 0  & 0  & 0  & 77 & 0  & 0   & 0  & 0  & 0   & 0 \\ \hline
+        \end{tabular}
+      \end{center}
+      \caption{Solución óptima para el problema aplicando la relajación lineal de varias fuentes.}
+      \label{table:multi-source-optimal-solution}
+    \end{table}
+
+    \begin{table}
+      \begin{center}
+        \begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | c | c | c | c |}
+              \hline
+          \multicolumn{2}{| c |}{\multirow{2}{*}{Coste Mínimo $c = 21942$}} &
+            \multicolumn{12}{ c |}{Destinos $n = 12$} \\ \cline{3-14}
+          \multicolumn{2}{| c |}{}
+            & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8   & 9  & 10 & 11  & 12 \\ \hline
+          \multirow{8}{*}{Orígenes $m = 8$}
+            & 1 & 69 & 0  & 0  & 0  & 0  & 104 & 0  & 0   & 0  & 0  & 0   & 0 \\ \cline{2-14}
+            & 2 & 0  & 0  & 0  & 89 & 0  & 0   & 68 & 0   & 0  & 0  & 0   & 0 \\ \cline{2-14}
+            & 3 & 0  & 0  & 0  & 0  & 0  & 0   & 0  & 0   & 82 & 0  & 0   & 109 \\ \cline{2-14}
+            & 4 & 0  & 0  & 0  & 0  & 0  & 0   & 0  & 0   & 0  & 0  & 113 & 0 \\ \cline{2-14}
+            & 5 & 0  & 0  & 0  & 0  & 95 & 0   & 0  & 0   & 0  & 78 & 0   & 0 \\ \cline{2-14}
+            & 6 & 0  & 0  & 95 & 0  & 0  & 0   & 0  & 0   & 0  & 0  & 0   & 0 \\ \cline{2-14}
+            & 7 & 0  & 0  & 0  & 0  & 0  & 0   & 0  & 112 & 0  & 0  & 0   & 0 \\ \cline{2-14}
+            & 8 & 0  & 98 & 0  & 0  & 0  & 0   & 0  & 0   & 0  & 0  & 0   & 0 \\ \hline
+        \end{tabular}
+      \end{center}
+      \caption{Solución óptima para el problema aplicando la restricción de fuente única.}
+      \label{table:single-source-optimal-solution}
+    \end{table}
+
 
   \begin{appendices}
 
     \section{Código Fuente}
 
-      \subsection{Problema de Transporte con Fuente Única}
-      \label{appendix:source-code}
+      \subsection{Problema de Transporte con Fuente Única: Relajación Lineal}
+      \label{appendix:source-code-relaxation}
 
-        \inputminted{text}{./../mosel/single-source-transportation-problem.mos}
+        \inputminted{text}{./../mosel/single-source-transportation-problem-relaxation.mos}
+
+      \subsection{Problema de Transporte con Fuente Única: Modelo 1}
+      \label{appendix:source-code-model-1}
+
+        \inputminted{text}{./../mosel/single-source-transportation-problem-model-1.mos}
+
+      \subsection{Problema de Transporte con Fuente Única: Modelo 2}
+      \label{appendix:source-code-model-2}
+
+        \inputminted{text}{./../mosel/single-source-transportation-problem-model-2.mos}
 
     \section{Datos}
     \label{appendix:data}
