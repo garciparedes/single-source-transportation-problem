@@ -26,6 +26,20 @@
     \paragraph{}
     [TODO]
 
+
+    \begin{eqfloat}
+      \begin{equation}
+        \begin{array}{ll@{}ll}
+          \text{Minimizar}	& \displaystyle \sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}c_{ij} \cdot x_{ij} \\
+          \text{sujeto a}		& \sum\limits_{j=1}^{n} x_{ij}	\leq s_{i}, & \forall i \in \{1,...,n\}\\
+                            &	\sum\limits_{i=1}^{m} x_{ij}	\geq d_{j}, & \forall j \in \{1,...,n\} \\
+                            & x_{ij}	\geq 0, 	& \forall i \in \{1,...,m\}, \forall j \in \{1,...,n\}
+        \end{array}
+      \end{equation}
+      \caption{Formulación básica del \emph{Problema de Transporte}.}
+      \label{eq:transportation-model}
+    \end{eqfloat}
+
   \section{Planteamiento: Restricción de Fuente Única}
   \label{sec:approach}
 
@@ -38,11 +52,41 @@
       \paragraph{}
       [TODO]
 
+      \begin{eqfloat}
+        \begin{equation}
+          \begin{array}{ll@{}ll}
+            \text{Minimizar}	& \displaystyle \sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}c_{ij} \cdot x_{ij} \\
+            \text{sujeto a}		& \sum\limits_{j=1}^{n} x_{ij}	\leq s_{i}, & \forall i \in \{1,...,n\}\\
+                              &	\sum\limits_{i=1}^{m} x_{ij}	\geq d_{j}, & \forall j \in \{1,...,n\} \\
+                              & x_{ij}	\leq min(s_{i}, d_{j}) \cdot y_{ij}, 	& \forall i \in \{1,...,m\}, \forall j \in \{1,...,n\} \\
+                              &	\sum\limits_{i=1}^{m} y_{ij}	\leq 1, & \forall j \in \{1,...,n\} \\
+                              & x_{ij}	\geq 0, 	& \forall i \in \{1,...,m\}, \forall j \in \{1,...,n\} \\
+                              & y_{ij}	\in \{0, 1\}, 	& \forall i \in \{1,...,m\}, \forall j \in \{1,...,n\} \\
+          \end{array}
+        \end{equation}
+        \caption{Formulación del \emph{Problema de Transporte de Fuente Única} siguiendo la \emph{Modelización 1}.}
+        \label{eq:single-source-transportation-model-1}
+      \end{eqfloat}
+
     \subsection{Modelo 2}
     \label{sec:approach-2}
 
       \paragraph{}
       [TODO]
+
+
+      \begin{eqfloat}
+        \begin{equation}
+          \begin{array}{ll@{}ll}
+            \text{Minimizar}	& \displaystyle \sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}c_{ij} \cdot d_{j} \cdot y_{ij} \\
+            \text{sujeto a}		& \sum\limits_{j=1}^{n} d_{j} \cdot y_{ij}	\leq s_{i}, & \forall i \in \{1,...,n\}\\
+                              &	\sum\limits_{i=1}^{m} y_{ij}	= 1, & \forall j \in \{1,...,n\} \\
+                              & y_{ij}	\in \{0, 1\}, 	& \forall i \in \{1,...,m\}, \forall j \in \{1,...,n\}
+          \end{array}
+        \end{equation}
+        \caption{Formulación del \emph{Problema de Transporte de Fuente Única} siguiendo la \emph{Modelización 2}.}
+        \label{eq:single-source-transportation-model-2}
+      \end{eqfloat}
 
   \section{Conclusiones}
   \label{sec:conclusions}
